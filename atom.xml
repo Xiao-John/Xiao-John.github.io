@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://XylophoneOS.gitee.io</id>
+    <title>Stu&apos;s RedOnline</title>
+    <updated>2021-04-27T13:11:08.097Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://XylophoneOS.gitee.io"/>
+    <link rel="self" href="https://XylophoneOS.gitee.io/atom.xml"/>
+    <subtitle>“然而几个人既然起来,你不能说决没有毁坏这铁屋子的希望。”</subtitle>
+    <logo>https://XylophoneOS.gitee.io/images/avatar.png</logo>
+    <icon>https://XylophoneOS.gitee.io/favicon.ico</icon>
+    <rights>All rights reserved 2021, Stu&apos;s RedOnline</rights>
+    <entry>
+        <title type="html"><![CDATA[Saluton]]></title>
+        <id>https://XylophoneOS.gitee.io/post/Saluton/</id>
+        <link href="https://XylophoneOS.gitee.io/post/Saluton/">
+        </link>
+        <updated>2021-04-27T12:59:38.000Z</updated>
+    </entry>
+</feed>
