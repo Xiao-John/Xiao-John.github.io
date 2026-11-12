@@ -72,7 +72,7 @@ make smoke   # 仓库根执行：串行跑既有回归 + 许可材料检查
 - **跑测试**：仓库根执行 `python3 tests/<名字>.py`；`make smoke` 就是把一批串起来跑。客体测试在 QEMU 里跑，依赖 `make build` 的产物。按改动跑相关探针即可，不因文档改动重跑旧全量（`docs/toolchain.md`）。
 - **结果只有四态**：`pass / partial / fail / not_run`。没执行的检查标"未运行"，不以跳过冒充通过（Discipline）。
 - **报告要素**（`docs/acceptance.md`）：源码/SDK/镜像/夹具摘要、工具与环境、步骤、结果、资源基线/终值、未运行项。
-- **新报告目录**按[证据完整性契约](../../docs/contracts/evidence_integrity.md)用平铺根清单 `manifest.json`（`{"version":1,"files":{路径:sha256}}`）；`python3 tests/report_manifest_check.py` 会如实报 compliant / grandfathered。
+- **新报告目录**按[证据完整性契约](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/contracts/evidence_integrity.md)用平铺根清单 `manifest.json`（`{"version":1,"files":{路径:sha256}}`）；`python3 tests/report_manifest_check.py` 会如实报 compliant / grandfathered。
 - **提交前扫描**（Discipline 明文命令）：
 
 ```sh

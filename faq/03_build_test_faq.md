@@ -25,7 +25,7 @@ layout: default
 
 > 普通构建**不会**下载或重编 GNU 工具链，工具链要你自己备好。
 
-**详见**：[docs/toolchain.md](../../docs/toolchain.md)、[README「从源码构建」](../../README.md)、[docs/e08.md](../../docs/e08.md)
+**详见**：[docs/toolchain.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/toolchain.md)、[README「从源码构建」](https://github.com/Xiao-John/XylophoneOS/blob/main/README.md)、[docs/e08.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/e08.md)
 
 ## Q2：`make build` 挂了，日志去哪看？
 
@@ -37,7 +37,7 @@ layout: default
 - **dash 构建（`make dash`）日志不在 build/**：写在 `.cache/xos_seed/dash/<key>/configure.log`、`make.log`；失败时脚本会把日志**末尾 7000 字符**直接打到终端。
 - 看到 `Stale build: <文件>`：说明源码在上次 `make build` 之后被改过，`make build` 重来一次即可（构建 ID 会变，旧测试要按新 build 重跑）。
 
-**详见**：[docs/toolchain.md](../../docs/toolchain.md)（manifest 记录什么）、[docs/usage/userland/getting_started.md「日志位置」](../../docs/usage/userland/getting_started.md)
+**详见**：[docs/toolchain.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/toolchain.md)（manifest 记录什么）、[docs/usage/userland/getting_started.md「日志位置」](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/usage/userland/getting_started.md)
 
 ## Q3：`make run` 起不来，怎么一步步排查？
 
@@ -56,7 +56,7 @@ layout: default
 
 **起来了但"没画面"是正常的**：默认 `-display none`，输出走串口，**直接打在你的终端上**（QEMU 参数 `-serial stdio`）。要图形窗口用 `make run_vga`（SDL 窗口）。退出按 `Ctrl-C`（这是关宿主 QEMU，不是客体命令）。
 
-**详见**：[docs/usage/userland/getting_started.md](../../docs/usage/userland/getting_started.md)（含常见错误表）、[docs/usage/index.md](../../docs/usage/index.md)
+**详见**：[docs/usage/userland/getting_started.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/usage/userland/getting_started.md)（含常见错误表）、[docs/usage/index.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/usage/index.md)
 
 ## Q4：其他 `run_*` 目标起不来？
 
@@ -78,7 +78,7 @@ boot_smoke → kernel_smoke → task_smoke → process_smoke → file_smoke
 - legacy 废除后（`docs/work_log/0224_drop_legacy_images.md`），`xos.img` 相关的 `KeyError` 挂账已过时：全部测试已迁到 `build/xos-install.iso`，`make smoke` 不再因缺 `xos.img` 失败。
 - 想快速验证"能不能启动"，先单跑下面这条（见 Q6）。
 
-**详见**：[docs/work_log/0224_drop_legacy_images.md](../../docs/work_log/0224_drop_legacy_images.md)、[docs/Discipline.md](../../docs/Discipline.md)（证据四态：pass/partial/fail/not_run）
+**详见**：[docs/work_log/0224_drop_legacy_images.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/work_log/0224_drop_legacy_images.md)、[docs/Discipline.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/Discipline.md)（证据四态：pass/partial/fail/not_run）
 
 ## Q6：客体测试怎么单独跑？（三个真实例子）
 
@@ -116,7 +116,7 @@ python3 tests/dash_c1_smoke.py --system build \
 - `--system` 是含 `manifest.json` 的构建目录（如 `build`）；`--dash-manifest` 指向 `make dash` 写出的 `.cache/xos_seed/dash/<key>/manifest.json`（key 由输入哈希决定，`ls -t .cache/xos_seed/dash/*/manifest.json | head -1` 取最新一份；`make dash` 成功时也会打印该 manifest 的 `elf`/`sha256` 等字段）。
 - **现状**：它按 `--system` 目录的 `manifest.json` 校验 `build/xos-install.iso` 的哈希并从该 ISO 启动（main 上已不引用 `xos.img`）；参数给全就能跑。
 
-**详见**：[docs/usage/index.md「维护规则」](../../docs/usage/index.md)、[docs/work_log/0217_sl2_shell接入.md](../../docs/work_log/0217_sl2_shell接入.md)（dash 系列测试需 `--system/--dash-manifest`）、[docs/usage/userland/dash.md](../../docs/usage/userland/dash.md)
+**详见**：[docs/usage/index.md「维护规则」](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/usage/index.md)、[docs/work_log/0217_sl2_shell接入.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/work_log/0217_sl2_shell接入.md)（dash 系列测试需 `--system/--dash-manifest`）、[docs/usage/userland/dash.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/usage/userland/dash.md)
 
 ## Q7：测试要种子/资产（cpython、Qt）怎么办？
 
@@ -131,7 +131,7 @@ python3 tests/dash_c1_smoke.py --system build \
 
 这些测试在 work_log 里常标为"未运行（环境）"——**缺资产跑不了就写 not_run，不要写成通过**。
 
-**详见**：[docs/e08.md](../../docs/e08.md)（Seed/SDK 路径与命令）、[docs/usage/userland/qt_development.md](../../docs/usage/userland/qt_development.md)、[docs/usage/userland/python.md](../../docs/usage/userland/python.md)、[docs/plans/cpython.md](../../docs/plans/cpython.md)
+**详见**：[docs/e08.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/e08.md)（Seed/SDK 路径与命令）、[docs/usage/userland/qt_development.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/usage/userland/qt_development.md)、[docs/usage/userland/python.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/usage/userland/python.md)、[docs/plans/cpython.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/plans/cpython.md)
 
 ## Q8：公共路径检查、证据报告是干嘛的？
 
@@ -140,10 +140,10 @@ python3 tests/dash_c1_smoke.py --system build \
 - 提交前：`python3 tests/check_public_evidence_paths.py --index --base origin/main`（扫暂存区新增/修改文件）。
 - 报告目录：`tests/report_manifest_check.py` 按新旧分别报 `compliant` / `grandfathered`；发证据前用 `python3 scripts/verify_evidence_index.py <索引>` 核哈希。
 
-**详见**：[docs/Discipline.md「证据完整性」](../../docs/Discipline.md)、[docs/contracts/evidence_integrity.md](../../docs/contracts/evidence_integrity.md)、[docs/work_log/README.md](../../docs/work_log/README.md)（work_log 编号规则）
+**详见**：[docs/Discipline.md「证据完整性」](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/Discipline.md)、[docs/contracts/evidence_integrity.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/contracts/evidence_integrity.md)、[docs/work_log/README.md](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/work_log/README.md)（work_log 编号规则）
 
 ## 卡住怎么办？
 
-- 构建/启动报错先抄**完整报错行**，再对照 [docs/usage/userland/getting_started.md 的常见错误表](../../docs/usage/userland/getting_started.md)。
+- 构建/启动报错先抄**完整报错行**，再对照 [docs/usage/userland/getting_started.md 的常见错误表](https://github.com/Xiao-John/XylophoneOS/blob/main/docs/usage/userland/getting_started.md)。
 - 不确定某能力是否已验收 → 查 `docs/state.md` 能力表 + 对应 `docs/work_log/`，README「已知边界」列了当前明确不支持的面（UEFI、SMP、QML/Quick、完整 POSIX 等）。
 - 测试报 `Stale build` → 先 `make build` 重建再跑；仍失败就对照 work_log 查已知问题，别自己改测试放水。
