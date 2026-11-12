@@ -1,0 +1,9 @@
+title: XOS 帮助（临时站点）
+description: XylophoneOS 临时帮助站点，内容来自仓库 xos_intro_zh
+theme: jekyll-theme-cayman
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: false
